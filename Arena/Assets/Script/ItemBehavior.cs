@@ -9,7 +9,7 @@ public class ItemBehavior : MonoBehaviour
     {
         if (collision.gameObject.name == "Player");
         {
-            Destroy(this.transform.parent.gameObject);
+            Destroy(this.gameObject);
             Debug.Log("Item collected!");
         }
 
