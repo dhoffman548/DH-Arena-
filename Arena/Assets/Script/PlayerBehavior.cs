@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     // 1
-    public float moveSpeed = 10f;
+    public float moveSpeed = 8f;
     public float rotateSpeed = 75f;
     // 2
     private float vInput;
@@ -38,6 +38,14 @@ public class PlayerBehavior : MonoBehaviour
 
         _rb.MovePosition(this.transform.position + this.transform.forward * vInput * Time.fixedDeltaTime);
         _rb.MoveRotation(_rb.rotation * angleRot);
+    }
+    void decreasedMovementSpeed()
+    {
+        moveSpeed /= 1.5f;
+    }
+    void resetMaterial()
+    {
+        this.gameObject.GetComponent<Renderer>().material = Resources.Load("Player_Mat", typeof(Material)) as Material;
     }
 }
 

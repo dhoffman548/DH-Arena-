@@ -7,7 +7,7 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Player") ;
+        if (other.name == "Player" && other.gameObject.GetComponent<Renderer>().material.name == "Player_Mat (Instance)")
         {
             Debug.Log("Player detected - attack!");
         }
