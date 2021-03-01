@@ -23,8 +23,12 @@ public class ItemBehavior : MonoBehaviour
                 collision.gameObject.GetComponent<Renderer>().material = Resources.Load("Enemy_Mat", typeof(Material)) as Material;
                 collision.gameObject.GetComponent<PlayerBehavior>().Invoke("resetMaterial", 6.0f);
             }
+            if (this.gameObject.name == "Guatemala_Pickup")
+            {
+                collision.gameObject.GetComponent<Renderer>().material = Resources.Load("Stealth_Mat", typeof(Material)) as Material;
+                collision.gameObject.GetComponent<PlayerBehavior>().Invoke("resetMaterial", 6.0f);
+            }
         }
-
     }
     
 }
