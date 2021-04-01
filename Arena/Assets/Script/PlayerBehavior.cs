@@ -12,6 +12,7 @@ public class PlayerBehavior : MonoBehaviour
     public LayerMask groundLayer;
     public GameObject bullet;
     public float bulletSpeed = 100f;
+    public MySceneManager sceneManager;
 
     // 2
     private float vInput;
@@ -69,9 +70,13 @@ public class PlayerBehavior : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             _gameManager.HP -= 1;
+            if(_gameManager.HP <= 0)
+            {
+                sceneManager.GameOver();
+            }
         }
     }
     private bool IsGrounded()
